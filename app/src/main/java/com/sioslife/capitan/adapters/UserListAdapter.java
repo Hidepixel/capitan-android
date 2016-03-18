@@ -1,16 +1,20 @@
-package com.example.sioslife.capitan.adapters;
+package com.sioslife.capitan.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.sioslife.capitan.R;
+import com.sioslife.capitan.R;
+import com.sioslife.capitan.UserListActivity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import models.User;
 
@@ -20,10 +24,11 @@ import models.User;
  */
 public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserListHolder> {
 
-    private ArrayList<User> userList;
+    private List<User> userList;
     private Context context;
+    private View.OnClickListener listener;
 
-    public UserListAdapter(ArrayList<User> userList, Context context) {
+    public UserListAdapter(List<User> userList, Context context) {
         this.userList = userList;
         this.context = context;
     }
@@ -31,6 +36,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
     @Override
     public UserListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.user_list_row, null);
+
+        if(listener != null){
+            view.setOnClickListener(listener);
+        }
 
         return new UserListHolder(view);
 
@@ -41,7 +50,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
         User user = userList.get(position);
 
         holder.name.setText(user.getName());
-        holder.money.setText( context.getString(R.string.user_money_format, (float)user.getMoney()/100));
+        holder.money.setText(context.getString(R.string.user_money_format, (float) user.getMoney() / 100));
     }
 
     @Override
@@ -50,6 +59,10 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
             return 0;
         }
         return userList.size();
+    }
+
+    public void setOnItemListener(View.OnClickListener listener) {
+        this.listener = listener;
     }
 
     public class UserListHolder extends RecyclerView.ViewHolder {
