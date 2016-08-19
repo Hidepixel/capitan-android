@@ -13,7 +13,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class ApiService {
 
-    public static final String ROOT_URL = "http://10.0.17.156:3000/";
+    public static final String ROOT_URL = "http://10.0.17.168:3000/";
     private Retrofit retrofit;
     private OkHttpClient client;
 
