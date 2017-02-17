@@ -48,6 +48,11 @@
                     android:textColor="@color/colorAccent"
                     android:text="@{@string/user_money_format((float)user.money / 100)}"/>
 
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Add Coffee"/>
+
             </android.support.v7.widget.LinearLayoutCompat>
         </android.support.v7.widget.LinearLayoutCompat>
     </RelativeLayout>

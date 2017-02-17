@@ -37,13 +37,11 @@ public class UserService {
                     callback.result(true, userList);
                 }
             }
+
             @Override
             public void onFailure(Call<List<User>> call, Throwable t) {
-                Log.e("daniel", t.toString());
                 callback.result(false, null);
             }
-
-
         });
     }
 

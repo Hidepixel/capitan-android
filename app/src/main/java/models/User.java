@@ -48,12 +48,14 @@ public class User extends BaseObservable implements Serializable {
         return id;
     }
 
+    @Bindable
     public int getCredit() {
         return credit;
     }
 
     public void setCredit(int credit) {
         this.credit = credit;
+        notifyPropertyChanged(BR.credit);
     }
 
     @Override

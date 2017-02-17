@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onStart() {
         super.onStart();
-
-
     }
 
     @Override
@@ -93,7 +91,6 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-
         if (id == R.id.open_list) {
             Intent intent = new Intent(getApplicationContext(), UserListActivity.class);
             startActivity(intent);
@@ -103,6 +100,5 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
 
 }

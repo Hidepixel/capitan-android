@@ -48,9 +48,8 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.UserLi
     @Override
     public void onBindViewHolder(UserListHolder holder, int position) {
         User user = userList.get(position);
-
         holder.name.setText(user.getName());
-        holder.money.setText(context.getString(R.string.user_money_format, (float) user.getMoney() / 100));
+        holder.money.setText(context.getString(R.string.user_money_format, (float) user.getCredit()));
     }
 
     @Override
